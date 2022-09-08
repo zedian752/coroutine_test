@@ -3,7 +3,7 @@
 #
 cmake_minimum_required (VERSION 3.8)
 
-project("stackful_co")
+project("stackless_co_cpp20")
 
 
 message( STATUS "CMAKE_VERSION ${CMAKE_VERSION}" )
@@ -12,21 +12,18 @@ message (STATUS "CMAKE_BUILD_TYPE: ${CMAKE_BUILD_TYPE}")
 message (STATUS "CMAKE_CXX_COMPILER: ${CMAKE_CXX_COMPILER}")
 message (STATUS "PROJECT_NAME: ${PROJECT_NAME}")
 
+# c++20
+set(CMAKE_CXX_STANDARD 20)
 
-# 开启编译asm配置
-enable_language(ASM C)
 
 # 将源代码添加到此项目的可执行文件。
 include_directories(
-	${CMAKE_CURRENT_SOURCE_DIR}/stackful_co/ucontext
+	${CMAKE_CURRENT_SOURCE_DIR}/
 )
 
 add_executable(${PROJECT_NAME} 
-${CMAKE_CURRENT_SOURCE_DIR}/stackful_co/ucontext/main.c
-${CMAKE_CURRENT_SOURCE_DIR}/stackful_co/ucontext/coroutine.c
-${CMAKE_CURRENT_SOURCE_DIR}/stackful_co/ucontext/coroutine.h
-
-)
+  "t.cpp"
+ "serial_number_generator.cpp")
 
 
 
