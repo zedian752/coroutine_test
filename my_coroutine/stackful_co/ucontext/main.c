@@ -1,4 +1,4 @@
-﻿// ucontext_coroutine.cpp: 定义应用程序的入口点。
+// ucontext_coroutine.cpp: 定义应用程序的入口点。
 //
 
 #include "coroutine.h"
@@ -34,8 +34,9 @@ test(struct schedule* S) {
 	printf("main end\n");
 }
 
+
 int
-main() {
+main(int arg, char ** args) {
 	struct schedule* S = coroutine_open();
 	test(S);
 	coroutine_close(S);
